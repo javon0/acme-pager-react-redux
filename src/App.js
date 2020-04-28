@@ -12,7 +12,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={'main'}>
+        <h1>ACME Pager</h1>
         <HashRouter>
           <Route
             exact

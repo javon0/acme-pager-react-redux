@@ -33,9 +33,15 @@ app.get('/api/employees/:page?', (req, res, next) => {
       ['firstName', 'asc'],
       ['lastName', 'asc'],
     ],
-  }).then(results => {
+  }).then((results) => {
     res.status(200).send(results);
   });
 });
 
+app.delete('/api/employees/:id', (req, res, next) => {
+  const id = req.params.id;
+  Employee.findByPk(id)
+    .then((result) => result.destroy())
+    .then(() => res.sendStatus(204));
+});
 module.exports = { app };

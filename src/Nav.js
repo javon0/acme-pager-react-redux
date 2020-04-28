@@ -16,7 +16,14 @@ const Nav = ({ employees, match }) => {
       <Link to={`/${url === pageArr[0] - 1 ? url : url - 1}`}>Previous</Link>
       {employees.count &&
         pageArr.map((page) => {
-          return <Link to={`/${page - 1}`}>{page}</Link>;
+          return (
+            <Link
+              to={`/${page - 1}`}
+              className={url === page - 1 && 'selected'}
+            >
+              {page}
+            </Link>
+          );
         })}
       <Link to={`/${url === pageArr[pageArr.length - 2] ? url : url + 1}`}>
         Next
@@ -24,8 +31,6 @@ const Nav = ({ employees, match }) => {
     </nav>
   );
 };
-
-const navPages = (num) => {};
 
 const mapStateToProps = ({ employees }) => ({
   employees,

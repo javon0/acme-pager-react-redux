@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import axios from 'axios';
 
 const LOAD_EMPLOYEES = 'LOAD_EMPLOYEES';
+const DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
 
 const employeesReducer = (state = [], action) => {
   switch (action.type) {
